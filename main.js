@@ -1,21 +1,21 @@
 // execute after initial page load
 $(document).ready(function() {
-  
+
   // wait 4s and post initial greeting message
   setTimeout(() => {addMessage(getReplyHtml("Hey, I'm your new chat buddy! How are you doing today?"));}, 3000);
-  
+
   // handler for form submit
   $("#inputtext").on("submit", function(event) {
       // prevent page reload on form submit
       event.preventDefault();
-      
+
       // post user message from textbox
-      let m = $("#message").val();      
+      let m = $("#message").val();
       addMessage(getMessageHtml(m));
 
       // generate random response and post with 4s delay
       setTimeout(() => {addMessage(getReplyHtml(composeReply()))}, 4000);
-    
+
       // reset textbox to empty
       $("#message").val('');
       // scroll to bottom if convo box scrollbar is present
@@ -33,7 +33,7 @@ function getCurrentTime() {
   const now = new Date();
   const hrs = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
   const mins = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
-  
+
   return hrs + ':' + mins;
 }
 
