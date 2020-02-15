@@ -1,12 +1,12 @@
 // execute after initial page load
 $(document).ready(function() {
 
-  // wait 4s and post initial greeting message
+  // wait 3s and post initial greeting message
   setTimeout(() => {addMessage(getReplyHtml('Hey, I\'m your new chat buddy! How are you doing today?'));}, 3000);
 
   // handler for form submit
   $("#input-text").on("submit", function(event) {
-          // prevent page reload on form submit
+      // prevent page reload on form submit
       event.preventDefault();
 
       // post user message from textbox
@@ -28,7 +28,7 @@ function addMessage (messageHtml) {
   $(".convo").append(messageHtml);
 }
 
-// get current time in 24:59 format
+// get current time in 23:59 format
 function getCurrentTime () {
   const now = new Date();
   const hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
